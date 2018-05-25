@@ -1,6 +1,6 @@
 from crypto_news_api import CryptoControlAPI
+import sys
 
-c = CryptoControlAPI("helo")
-c.getTopNews()
-c.getTopNews()
-c.getTopNews()
+c = CryptoControlAPI(sys.argv[1])
+
+print(c.getTopNewsByCoin("bitcoin"))

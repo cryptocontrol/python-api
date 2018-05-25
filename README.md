@@ -13,13 +13,13 @@ First make sure that you've recieved an API key by visiting [https://cryptocontr
 
 
 ```python
-import CryptoControlApi from 'crypto-news-api'
+from crypto_news_api import CryptoControlAPI
 
-const Api = new CryptoControlApi('API_KEY_HERE')
+api = CryptoControlAPI("API_KEY_HERE")
 
-Api.getTopNews()
-    .then(articles => console.log(articles))
-    .catch(error => console.error(error))
+print(api.getTopNews())
+print(api.getTopNewsByCoin("bitcoin"))
+
 ```
 
 ## Available Functions
