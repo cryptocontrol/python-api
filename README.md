@@ -1,4 +1,4 @@
-CryptoControl Crypto News API
+CryptoControl - Python Crypto News API
 =========================
 
 Official Python client for the [CryptoControl.io](https://cryptocontrol.io) API. The CryptoControl python client lets developers access rich formatted articles from cryptonews sources from all around the world.
