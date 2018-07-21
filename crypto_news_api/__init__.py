@@ -5,6 +5,7 @@ class CryptoControlAPI:
         self.apiKey = apiKey
         self.proxyServer = proxyServer
 
+
     def _fetch(self, url):
         HOST = self.proxyServer if self.proxyServer else 'https://cryptocontrol.io/api/v1/public'
         URL = HOST + url
