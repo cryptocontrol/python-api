@@ -1,11 +1,13 @@
 import requests
 
 class CryptoControlAPI:
-    def __init__(self, apiKey):
+    def __init__(self, apiKey, proxyServer = None):
         self.apiKey = apiKey
+        self.proxyServer = proxyServer
 
     def _fetch(self, url):
-        URL = "https://cryptocontrol.io/api/v1/public%s" % url
+        HOST = self.proxyServer if self.proxyServer else 'https://cryptocontrol.io/api/v1/public'
+        URL = HOST + url
         HEADERS = {
             'x-api-key': self.apiKey,
             'user-agent': 'CryptoControl Python Client'

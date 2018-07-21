@@ -1,7 +1,7 @@
 from crypto_news_api import CryptoControlAPI
 import sys
 
-api = CryptoControlAPI(sys.argv[1])
+api = CryptoControlAPI(sys.argv[1], "http://localhost:6999/api/v1/public")
 
 
 # Get top news
