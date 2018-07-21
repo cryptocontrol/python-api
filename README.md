@@ -61,9 +61,11 @@ print(api.getCoinDetails("ethereum"))
 - **getLatestTweetsByCoin(coin: String, lang?: enum)** Get latest tweets for a particular coin
 - **getTopFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by time)
 - **getLatestFeedByCoin(coin: String, lang?: enum)** Get a combined feed (reddit/tweets/articles) for a particular coin (sorted by relevance)
+- **getTopItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by time)
+- **getLatestItemsByCoin(coin: String, lang?: enum)** Get reddit/tweets/articles (seperated) for a particular coin (sorted by relevance)
 - **getCoinDetails(coin: String)** Get all details about a particular coin (links, description, subreddits, twitter etc..)
 
-`lang` allows developers to choose which language they'd like to get the feed. Currently CryptoControl supports English ('en') and Russian ('ru') article feeds.
+`lang` allows developers to choose which language they'd like to get the feed. Currently CryptoControl supports English (`en`) and Russian (`ru`) article feeds.
 
 The coin slugs are the coin id's used from the CoinMarketCap api. You can see the full list of coins here: [https://api.coinmarketcap.com/v1/ticker/?limit=2000](https://api.coinmarketcap.com/v1/ticker/?limit=2000)
 
