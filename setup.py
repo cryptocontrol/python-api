@@ -9,7 +9,7 @@ setuptools.setup(
     packages=['crypto_news_api'],
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version = '2.2.0',
+    version = '2.3.1',
     description = 'Client to get a crypto newsfeed in your app from the CryptoControl API',
     author = 'Steven Enamakel',
     author_email = 'enamakel@cryptocontrol.io',

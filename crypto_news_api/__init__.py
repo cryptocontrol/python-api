@@ -2,33 +2,40 @@ import requests
 
 class CryptoControlAPI:
     def __init__(self, apiKey, proxyServer = None):
-        self.apiKey = apikey
+        self.apiKey = apiKey
         self.proxyServer = proxyServer
         self.sentiment = False
 
 
     def _fetch(self, url):
-        HOST = self.proxyServer if self.proxyServer else 'https://cryptocontrol.io/api/v1/public'
-        SENTIMENT = "%ssentiment="%("&" if url.find("?") else "?")+"%s"%("true" if self.sentiment == True else "false")
-        URL = HOST + url + str(SENTIMENT)
+        host = self.proxyServer if self.proxyServer else 'https://cryptocontrol.io/api/v1/public'
+        sentiment = "%ssentiment=%s" % (
+            "&" if url.find("?") else "?",
+            "true" if self.sentiment == True else "false"
+        )
 
-        HEADERS = {
+        finalURL = host + url + sentiment
+
+        headers = {
             'x-api-key': self.apiKey,
-            'user-agent': 'CryptoControl Python Client'
+            'user-agent': 'CryptoControl Python Client v2.3.1'
         }
 
-        response = requests.get(url=URL, headers=HEADERS)
+        response = requests.get(url=finalURL, headers=headers)
 
         if (response.status_code is 401): raise Exception("Invalid API Key")
-
-        if (response.status_code is not 200):
-            raise Exception("Bad response from the CryptoControl API")
+        if (response.status_code is 405): raise Exception("You are not a premium user. Visit https://cryptocontrol.io/about/premium for more info")
+        if (response.status_code is not 200): raise Exception("Bad response from the CryptoControl API")
 
         return response.json()
 
 
     def enableSentiment(self):
-            self.sentiment = True
+        """
+            Enable the sentiment datapoints
+        """
+        self.sentiment = True
+
 
     def getTopNews(self, language = "en"):
         """
