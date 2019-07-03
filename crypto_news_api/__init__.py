@@ -37,110 +37,110 @@ class CryptoControlAPI:
         self.sentiment = True
 
 
-    def getTopNews(self, language = "en"):
+    def getTopNews(self, language = "en", page = 0):
         """
             Get the top news from the CryptoControl API. Returns a JSON array of articles
         """
-        return self._fetch("/news?language=%s" % language)
+        return self._fetch("/news?language=%s&page=%d" % (language, page))
 
 
-    def getLatestNews(self, language = "en"):
+    def getLatestNews(self, language = "en", page = 0):
         """
             Get the latest news from the CryptoControl API. Returns a JSON array of articles
         """
-        return self._fetch("/news?latest=true&language=%s" % language)
+        return self._fetch("/news?latest=true&language=%s&page=%d" % (language,page))
 
 
-    def getTopNewsByCategory(self, language = "en"):
+    def getTopNewsByCategory(self, language = "en", page = 0):
         """
             Get news articles grouped by category from the CryptoControl News API. Returns a JSON
             object where each key reperesents a category and contains an array of articles.
         """
-        return self._fetch("/news/category?language=%s" % language)
+        return self._fetch("/news/category?language=%s&page=%d" % (language,page))
 
 
-    def getTopNewsByCoin(self, coin, language= "en"):
+    def getTopNewsByCoin(self, coin, language= "en", page = 0):
         """
             Get the top news articles for a specific coin from the CryptoControl API.
             Returns a JSON array of articles
         """
-        return self._fetch("/news/coin/%s?langage=%s" % (coin, language))
+        return self._fetch("/news/coin/%s?langage=%s&page=%d" % (coin, language, page))
 
 
-    def getLatestNewsByCoin(self, coin, language = "en"):
+    def getLatestNewsByCoin(self, coin, language = "en", page = 0):
         """
             Get the latest news articles for a specific coin from the CryptoControl News API.
             Returns a JSON array of articles
         """
-        return self._fetch("/news/coin/%s?latest=true&language=%s" % (coin, language))
+        return self._fetch("/news/coin/%s?latest=true&language=%s&page=%d" % (coin, language, page))
 
 
-    def getTopNewsByCoinCategory(self, coin, language = "en"):
+    def getTopNewsByCoinCategory(self, coin, language = "en", page = 0):
         """
             Get news articles grouped by category for a specific coin from the CryptoControl News API. Returns a JSON
             object where each key reperesents a category and contains an array of articles.
         """
-        return self._fetch("/news/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/news/coin/%s?language=%s&page=%d" % (coin, language, page))
 
 
-    def getTopRedditPostsByCoin(self, coin, language="en"):
+    def getTopRedditPostsByCoin(self, coin, language="en", page = 0):
         """
             Get top reddit posts for a specific coin.
         """
-        return self._fetch("/reddit/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/reddit/coin/%s?language=%s&page=%d" % (coin, language, page))
 
 
-    def getLatestRedditPostsByCoin(self, coin, language="en"):
+    def getLatestRedditPostsByCoin(self, coin, language="en", page = 0):
         """
             Get latest reddit posts for a specific coin.
         """
-        return self._fetch("/news/coin/%s?latest=true&language=%s" % (coin, language))
+        return self._fetch("/news/coin/%s?latest=true&language=%s&page=%d" % (coin, language, page))
 
 
-    def getTopTweetsByCoin(self, coin, language="en"):
+    def getTopTweetsByCoin(self, coin, language="en", page = 0):
         """
             Get top tweets for a specific coin.
         """
-        return self._fetch("/tweets/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/tweets/coin/%s?language=%s&page=%d" % (coin, language, page))
 
 
-    def getLatestTweetsByCoin(self, coin, language="en"):
+    def getLatestTweetsByCoin(self, coin, language="en", page = 0):
         """
             Get latest tweets for a specific coin.
         """
-        return self._fetch("/tweets/coin/%s?latest=true&language=%s" % (coin, language))
+        return self._fetch("/tweets/coin/%s?latest=true&language=%s&page=%d" % (coin, language, page))
 
 
-    def getTopFeedByCoin(self, coin, language="en"):
+    def getTopFeedByCoin(self, coin, language="en", page = 0):
         """
             Get top feed (combined reddit/articles/tweets) for a given coin
         """
-        return self._fetch("/feed/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/feed/coin/%s?language=%s&page=%d" % (coin, language, page))
 
 
-    def getLatestFeedByCoin(self, coin, language="en"):
+    def getLatestFeedByCoin(self, coin, language="en", page = 0):
         """
             Get latest feed (combined reddit/articles/tweets) for a given coin
         """
-        return self._fetch("/feed/coin/%s?latest=true&language=%s" % (coin, language))
+        return self._fetch("/feed/coin/%s?latest=true&language=%s&page=%d" % (coin, language, page))
 
 
-    def getTopItemsByCoin(self, coin, language="en"):
+    def getTopItemsByCoin(self, coin, language="en", page = 0):
         """
             Get top reddit/articles/tweets (seperated) for a given coin
         """
-        return self._fetch("/feed/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/feed/coin/%s?language=%s&page=%d" % (coin, language, page))
 
 
-    def getLatestItemsByCoin(self, coin, language="en"):
+    def getLatestItemsByCoin(self, coin, language="en", page = 0):
         """
             Get latest reddit/articles/tweets (seperated) for a given coin
         """
-        return self._fetch("/feed/coin/%s?latest=true&language=%s" % (coin, language))
+        return self._fetch("/feed/coin/%s?latest=true&language=%s&page=%d" % (coin, language, page))
 
 
-    def getCoinDetails(self, coin, language="en"):
+    def getCoinDetails(self, coin, language="en", page = 0):
         """
             Get all details about a single coin. (Wallets, links, blockexplorers, subreddits etc)
         """
-        return self._fetch("/details/coin/%s?language=%s" % (coin, language))
+        return self._fetch("/details/coin/%s?language=%s&page=%d" % (coin, language, page))
